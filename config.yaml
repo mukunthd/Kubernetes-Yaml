@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: appconfig 
+data:
+  DEPLOY_ENV: LATEST
+  COLOR: BLUE
