@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: mypod
+spec:
+   containers:
+        - image: mukunth/jenkins:1.0.0
+          name: mypod
+   imagePullSecrets:
+        - name: mukunthd

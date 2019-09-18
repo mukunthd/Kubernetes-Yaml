@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: mypoda
+  name: mypoda
+spec:
+  volumes:
+  - name: pod-vol
+    hostPath:
+      type: Directory
+      path: /data
+  nodeName: node2
+  containers:
+  - image: nginx
+    name: mypoda
+    volumeMounts:
+     - mountPath: /tmp/abc
+       name: pod-vol
+    envFrom:
+     - configMapRef: 
+         name: myconfig

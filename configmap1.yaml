@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  env: latest
+  name: config2
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: myconfig

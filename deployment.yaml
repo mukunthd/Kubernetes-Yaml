@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: test-pd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: nginx
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: nginx
+    spec:
+      containers:
+      - image: nginx.0
+        name: test-pd
+        resources:
+          limits:
+            cpu: 200m
+            memory: 512Mi
+        volumeMounts:
+          - mountPath: /test-pd
+            name: test-volume
+      volumes:
+          - name: test-volume
+            hostPath:
+      # directory location on host
+                path: /tmp
+      # this field is optional
+                type: Directory
+status: {}
+

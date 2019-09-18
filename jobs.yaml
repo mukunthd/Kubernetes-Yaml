@@ -1,16 +1,17 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-   name: perl-job
-   labels:
-     purpose: perl-job
+  name: countdown
 spec:
   template:
-       spec:
-         containers:
-             - name: perl-job
-               image: perl
-               command:
-                 - "echo"
-               args: ["ls /tmp/"]
-         restartPolicy: Never
+    metadata:
+      name: countdown
+    spec:
+      containers:
+      - name: counter
+        image: nginx
+        command:
+         - "bin/bash"
+         - "-c"
+         - "for i in 9 8 7 6 5 4 3 2 1 ; do echo $i ; done"
+      restartPolicy: Never

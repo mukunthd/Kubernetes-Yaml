@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tolpod
+  labels:
+    app: blue
+
+spec:
+  containers:
+     - name: tolpod
+       image: nginx
+  tolerations:
+     - key: "app"
+       value: "blue"
+       operator: "Equal"
+       effect: "NoSchedule"
